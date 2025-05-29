@@ -3,29 +3,30 @@
 namespace Zplus\Vipos\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class ViposServiceProvider extends ServiceProvider
-{
-    /**
+{    /**
      * Register services.
      */
     public function register(): void
     {
         $this->registerConfig();
-    }
-
-    /**
+    }    /**
      * Bootstrap services.
      */
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
-        
-        $this->loadTranslationsFrom(__DIR__.'/../Resources/lang', 'vipos');
+        $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
         
         $this->loadViewsFrom(__DIR__.'/../Resources/views', 'vipos');
         
-        $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
+        $this->loadTranslationsFrom(__DIR__.'/../Resources/lang', 'vipos');
+        
+        // Publish assets
+        $this->publishes([
+            __DIR__.'/../Resources/assets' => public_path('packages/Zplus/vipos/assets'),
+        ], 'vipos-assets');
     }
 
     /**

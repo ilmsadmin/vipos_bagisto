@@ -4,6 +4,14 @@ CHú ý: chỉ được thêm, sửa code ở thư mục packages\Zplus\vipos
 
 # POS Package Development Checklist
 
+## 0. Package Setup & Integration
+- [x] Tạo ServiceProvider cho ViPOS package
+- [x] Đăng ký menu ViPOS trong sidebar admin
+- [x] Tạo routes cơ bản cho admin POS
+- [x] Tạo controllers cơ bản
+- [x] Tạo views cơ bản cho admin interface
+- [x] Cấu hình autoload và đăng ký package
+
 ## 1. Database Setup
 - [x] Tạo migration cho bảng `pos_sessions`
 - [x] Tạo migration cho bảng `pos_transactions`
@@ -18,19 +26,19 @@ CHú ý: chỉ được thêm, sửa code ở thư mục packages\Zplus\vipos
 - [ ] Thêm relationships vào model `User` (hasMany pos_sessions)
 
 ### Controllers
-- [ ] Tạo `PosController`
-  - [ ] Implement method `index()`
+- [x] Tạo `PosController`
+  - [x] Implement method `index()`
   - [ ] Implement method `openSession()`
   - [ ] Implement method `closeSession()`
   - [ ] Implement method `getCurrentSession()`
-- [ ] Tạo `PosTransactionController`
+- [x] Tạo `PosTransactionController`
   - [ ] Implement method `checkout()`
   - [ ] Implement method `getProducts()`
   - [ ] Implement method `searchCustomers()`
   - [ ] Implement method `quickCreateCustomer()`
 
 ### API & Routes
-- [ ] Thêm routes cho POS trong `routes/web.php` hoặc `routes/api.php`
+- [x] Thêm routes cho POS trong `routes/web.php` hoặc `routes/api.php`
 - [ ] Tạo middleware kiểm tra POS session
 - [ ] Tạo API resources cho POS data
 

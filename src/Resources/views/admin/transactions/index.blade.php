@@ -1,24 +1,23 @@
-@extends('admin::layouts.master')
+<x-admin::layouts>
+    <x-slot:title>
+        ViPOS - Giao dịch
+    </x-slot>
 
-@section('page_title')
-    ViPOS - Giao dịch
-@stop
+    <div class="flex items-center justify-between gap-4 max-sm:flex-wrap">
+        <p class="text-xl font-bold text-gray-800 dark:text-white">
+            Giao dịch POS
+        </p>
+    </div>
 
-@section('content-wrapper')
-    <div class="content full-page">
-        <div class="page-content">
-            <div class="page-header">
-                <h1>Giao dịch POS</h1>
-                <p class="page-description">Quản lý và theo dõi các giao dịch bán hàng</p>
-            </div>
+    <div class="mt-3.5">
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+            Quản lý và theo dõi các giao dịch bán hàng
+        </p>
 
-            <div class="page-content">
-                <!-- Coming Soon -->
-                <div class="bg-white dark:bg-gray-900 rounded-lg shadow p-8 text-center">
-                    <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Đang phát triển</h2>
-                    <p class="text-gray-600 dark:text-gray-300">Tính năng quản lý giao dịch đang được phát triển.</p>
-                </div>
-            </div>
+        <!-- Coming Soon -->
+        <div class="box-shadow rounded bg-white p-8 text-center dark:bg-gray-900">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Đang phát triển</h2>
+            <p class="text-gray-600 dark:text-gray-300">Tính năng quản lý giao dịch đang được phát triển.</p>
         </div>
     </div>
-@stop
+</x-admin::layouts>

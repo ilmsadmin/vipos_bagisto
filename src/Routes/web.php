@@ -5,10 +5,14 @@ use Zplus\Vipos\Http\Controllers\Admin\PosController;
 use Zplus\Vipos\Http\Controllers\Admin\PosSessionController;
 use Zplus\Vipos\Http\Controllers\Admin\PosTransactionController;
 
-Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin/vipos'], function () {
-    Route::prefix('vipos')->name('admin.vipos.')->group(function () {
-        // POS Dashboard
+// Test route without authentication
+Route::get('/vipos-test', [PosController::class, 'index'])->name('vipos.test');
+
+Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_url')], function () {
+    Route::prefix('vipos')->name('admin.vipos.')->group(function () {        // POS Dashboard (now fullscreen by default)
         Route::get('/', [PosController::class, 'index'])->name('index');
+        // POS Dashboard (non-fullscreen version)
+        Route::get('/dashboard', [PosController::class, 'dashboard'])->name('dashboard');
         
         // POS Sessions
         Route::prefix('sessions')->name('sessions.')->group(function () {
