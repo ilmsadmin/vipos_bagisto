@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>ViPOS - Hệ thống bán hàng</title>
-      <!-- External CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>ViPOS - Hệ thống bán hàng</title>    <!-- External CSS -->
     <link rel="stylesheet" href="{{ asset('packages/Zplus/vipos/assets/css/pos-fullscreen.css') }}">
+    <link rel="stylesheet" href="{{ asset('packages/Zplus/vipos/assets/css/hover-add-effect.css') }}">
+    <link rel="stylesheet" href="{{ asset('packages/Zplus/vipos/assets/css/cart-notification.css') }}">
 </head>
 <body>
     <div class="pos-container">        <!-- Header liền mạch trên cùng -->
@@ -110,74 +110,92 @@
                 <!-- Products Section -->
                 <div class="products-section">
                     <div class="products-grid" id="products-grid">
-                        <!-- Sample Products -->
-                        <div class="product-card" data-id="1" data-category="drink">
+                        <!-- Sample Products -->                        <div class="product-card" data-id="1" data-category="drink">
                             <div class="product-image">☕</div>
                             <div class="product-name">Cà phê đen đá</div>
                             <div class="product-price">25,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(1, 'Cà phê đen đá', 25000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(1, 'Cà phê đen đá', 25000)">+</button>
+                            </div>
                         </div>
                           <div class="product-card" data-id="2" data-category="food">
                             <div class="product-image">🍞</div>
                             <div class="product-name">Bánh mì thịt nướng</div>
                             <div class="product-price">20,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(2, 'Bánh mì thịt nướng', 20000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(2, 'Bánh mì thịt nướng', 20000)">+</button>
+                            </div>
                         </div>
                         
                         <div class="product-card" data-id="3" data-category="drink">
                             <div class="product-image">🥤</div>
                             <div class="product-name">Nước cam tươi</div>
                             <div class="product-price">15,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(3, 'Nước cam tươi', 15000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(3, 'Nước cam tươi', 15000)">+</button>
+                            </div>
                         </div>
                         
                         <div class="product-card" data-id="4" data-category="snack">
                             <div class="product-image">🍿</div>
                             <div class="product-name">Bỏng ngô vị bơ</div>
                             <div class="product-price">12,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(4, 'Bỏng ngô vị bơ', 12000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(4, 'Bỏng ngô vị bơ', 12000)">+</button>
+                            </div>
                         </div>
                         
                         <div class="product-card" data-id="5" data-category="food">
                             <div class="product-image">🍜</div>
                             <div class="product-name">Phở bò tái chín</div>
                             <div class="product-price">45,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(5, 'Phở bò tái chín', 45000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(5, 'Phở bò tái chín', 45000)">+</button>
+                            </div>
                         </div>
-                        
-                        <div class="product-card" data-id="6" data-category="drink">
+                          <div class="product-card" data-id="6" data-category="drink">
                             <div class="product-image">🧋</div>
                             <div class="product-name">Trà sữa trân châu</div>
                             <div class="product-price">30,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(6, 'Trà sữa trân châu', 30000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(6, 'Trà sữa trân châu', 30000)">+</button>
+                            </div>
                         </div>
                         
                         <div class="product-card" data-id="7" data-category="electronics">
                             <div class="product-image">🎧</div>
                             <div class="product-name">Tai nghe Bluetooth</div>
                             <div class="product-price">299,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(7, 'Tai nghe Bluetooth', 299000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(7, 'Tai nghe Bluetooth', 299000)">+</button>
+                            </div>
                         </div>
                         
                         <div class="product-card" data-id="8" data-category="fashion">
                             <div class="product-image">👕</div>
                             <div class="product-name">Áo thun cotton</div>
                             <div class="product-price">199,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(8, 'Áo thun cotton', 199000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(8, 'Áo thun cotton', 199000)">+</button>
+                            </div>
                         </div>
                         
                         <div class="product-card" data-id="9" data-category="food">
                             <div class="product-image">🍕</div>
                             <div class="product-name">Pizza hải sản</div>
                             <div class="product-price">120,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(9, 'Pizza hải sản', 120000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(9, 'Pizza hải sản', 120000)">+</button>
+                            </div>
                         </div>
                         
                         <div class="product-card" data-id="10" data-category="snack">
                             <div class="product-image">🥨</div>
                             <div class="product-name">Bánh quy socola</div>
                             <div class="product-price">18,000₫</div>
-                            <button class="product-add-btn" onclick="addToCart(10, 'Bánh quy socola', 18000)">+ Thêm</button>
+                            <div class="product-overlay">
+                                <button class="add-to-cart-btn" onclick="addToCart(10, 'Bánh quy socola', 18000)">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -351,6 +369,15 @@
                 <button class="btn-primary" id="shift-action-btn" onclick="processShiftAction()">Mở ca</button>
             </div>
         </div>    </div>
+
+    <!-- Cart Notification -->
+    <div class="add-to-cart-notification" id="cart-notification">
+        <div class="notification-icon">✓</div>
+        <div class="notification-content">
+            <div class="notification-title">Đã thêm vào giỏ hàng</div>
+            <div class="notification-message" id="notification-product-info"></div>
+        </div>
+    </div>
 
     <!-- External JavaScript -->
     <script src="{{ asset('packages/Zplus/vipos/assets/js/pos-fullscreen.js') }}"></script>
