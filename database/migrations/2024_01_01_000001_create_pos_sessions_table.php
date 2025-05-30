@@ -10,11 +10,11 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('pos_sessions', function (Blueprint $table) {
+    {        Schema::create('pos_sessions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('store_id')->nullable()->constrained()->nullOnDelete();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('admins')->cascadeOnDelete();
+            $table->unsignedInteger('store_id')->nullable();
             $table->decimal('opening_balance', 15, 2)->default(0);
             $table->decimal('closing_balance', 15, 2)->nullable();
             $table->decimal('total_sales', 15, 2)->default(0);

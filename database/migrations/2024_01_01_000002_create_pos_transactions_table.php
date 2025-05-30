@@ -10,14 +10,16 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('pos_transactions', function (Blueprint $table) {
+    {        Schema::create('pos_transactions', function (Blueprint $table) {
             $table->id();
             $table->string('transaction_number')->unique();
-            $table->foreignId('pos_session_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('sale_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('customer_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('pos_session_id');
+            $table->foreign('pos_session_id')->references('id')->on('pos_sessions')->cascadeOnDelete();
+            $table->unsignedInteger('sale_id')->nullable();
+            $table->unsignedInteger('customer_id')->nullable();
+            $table->foreign('customer_id')->references('id')->on('customers')->nullOnDelete();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('admins');
             $table->decimal('subtotal', 15, 2);
             $table->decimal('discount_amount', 15, 2)->default(0);
             $table->decimal('discount_percentage', 5, 2)->default(0);

@@ -14,14 +14,15 @@ class ViposServiceProvider extends ServiceProvider
         $this->registerConfig();
     }    /**
      * Bootstrap services.
-     */
-    public function boot(): void
+     */    public function boot(): void
     {
         $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
         
         $this->loadViewsFrom(__DIR__.'/../Resources/views', 'vipos');
         
         $this->loadTranslationsFrom(__DIR__.'/../Resources/lang', 'vipos');
+        
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         
         // Publish assets
         $this->publishes([

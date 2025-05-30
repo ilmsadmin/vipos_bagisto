@@ -152,7 +152,10 @@ class PosTransaction extends Model {
 
 ## Frontend Components
 
-### Vue Components Structure
+**NOTE: DESIGN CHANGED - Đã chuyển từ Vue.js sang Blade Templates + Vanilla JavaScript**
+
+### ~~Vue Components Structure~~ (DEPRECATED)
+**OLD APPROACH - Đã loại bỏ Vue.js**
 ```
 /resources/js/components/pos/
 ├── PosLayout.vue          // Main layout component
@@ -166,6 +169,32 @@ class PosTransaction extends Model {
 │   ├── CategoryFilter.vue // Bộ lọc category
 │   └── ProductGrid.vue    // Grid hiển thị sản phẩm
 └── CheckoutModal.vue      // Modal xử lý thanh toán
+```
+
+### NEW APPROACH: Blade Templates + Vanilla JavaScript
+```
+/resources/views/admin/pos/
+├── fullscreen.blade.php    // Main POS interface
+├── partials/
+│   ├── header.blade.php    // Header với nút back to admin
+│   ├── cart-panel.blade.php // Panel bên trái (cart, search)
+│   ├── product-panel.blade.php // Panel bên phải (products, categories)
+│   ├── modals/
+│   │   ├── payment.blade.php    // Modal thanh toán
+│   │   ├── receipt.blade.php    // Modal hóa đơn
+│   │   ├── customer.blade.php   // Modal tạo/chọn customer
+│   │   └── session.blade.php    // Modal quản lý session
+│   └── components/
+│       ├── product-grid.blade.php
+│       ├── cart-items.blade.php
+│       └── customer-search.blade.php
+
+/resources/assets/js/
+├── pos.js                  // Main POS JavaScript logic
+├── cart.js                 // Cart management
+├── products.js             // Product search/filter
+├── customers.js            // Customer management
+└── checkout.js             // Checkout flow
 ```
 
 ## Routes
